@@ -1,0 +1,30 @@
+﻿@model IEnumerable<EmployeeManagement.Models.DepartmentViewModels.DepartmentGroup>
+
+@{
+    ViewData["Title"] = "Employee Body Statistics";
+}
+
+<h2>Employee Body Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Department
+        </th>
+        <th>
+            Employees
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @item.EmployeeCount
+            </td>
+        </tr>
+    }
+</table>

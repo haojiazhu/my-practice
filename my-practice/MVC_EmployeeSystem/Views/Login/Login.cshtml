@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+@model EmployeeManagement.Models.ViewModels.LoginViewModel
+
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form asp-action="IsLogin" asp-controller="Login" method="get">
+                <h4>Use a local account to log in.</h4>
+                <hr />
+
+                <div class="form-group">
+                    <label asp-for="Account"></label>
+                    <input asp-for="Account" class="form-control" required="required"/>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PassWord"></label>
+                    <input asp-for="PassWord" type="password" class="form-control" required="required"/>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Log in</button>
+                </div>
+
+            </form>
+        </section>
+    </div>
+</div>

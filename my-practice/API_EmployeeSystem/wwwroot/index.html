@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Employee-Manager</title>
+    <style>
+        input[type='submit'], button, [aria-label] {
+            cursor: pointer;
+        }
+
+        #spoiler,#adddiv{
+            display: none;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        th {
+            background-color: green;
+            color: white;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="site.js"></script>
+    <script src="jquery.validate.min.js"></script>
+    <script src="additional-methods.min.js"></script>
+</head>
+<body>
+    <h1>Employee CRUD</h1>
+    <h3 onclick="showadd()">Add</h3>
+    <div id="adddiv">
+        <form id="addForm" action="javascript:void(0);" method="POST">
+            FirstName:<input type="text" id="addfn" name="firstName"><br />
+            LastName:<input type="text" id="addln" name="lastName"><br />
+            Gender:<select id="addg" name="gender">
+                <option>m</option>
+                <option>f</option>
+            </select><br />
+            Birth:<input type="date" id="addb" name="birth"><br />
+            Department:<select id="addd" name="department">
+                <option>develop</option>
+                <option>test</option>
+                <option>manage</option>
+            </select><br />
+            Phone:<input type="number" id="addp" name="phone"><br />
+            <input type="submit" value="Add">&nbsp;&nbsp;
+            <input type="button" onclick="closeadd()" value="cancel">
+        </form>
+    </div>
+        <table id="EmployeeTable" align="center" width="500">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Gender</th>
+                    <th>Birth</th>
+                    <th>Department</th>
+                    <th>Phone</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="todos"></tbody>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Gender</th>
+                    <th>Birth</th>
+                    <th>Department</th>
+                    <th>Phone</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+        <div id="spoiler">
+            <h3>Edit</h3>
+            <form id="editForm" action="javascript:void(0);" method="POST">
+                <input type="hidden" id="editid"><br />
+                FirstName:<input type="text" id="editfn" name="firstName"><br />
+                LastName:<input type="text" id="editln" name="lastName"><br />
+                Gender:<select id="editg" name="gender">
+                    <option>m</option>
+                    <option>f</option>
+                </select><br />
+                Birth:<input type="date" id="editb" name="birth"><br />
+                Department:<select id="editd" name="department">
+                    <option>develop</option>
+                    <option>test</option>
+                    <option>manage</option>
+                </select><br />
+                Phone:<input type="number" id="editp" name="phone"><br />
+                <input type="submit" value="Save">&nbsp;&nbsp;
+                <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+            </form>
+        </div>
+</body>
+</html>

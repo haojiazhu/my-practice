@@ -1,0 +1,130 @@
+﻿@model EmployeeManagement.Models.ViewModels.ViewDataModel
+@inject ProfileOptionsService Options
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<h4 style="display:inline">
+    Hello @ViewData["CurrentAccount"]
+</h4>&nbsp;&nbsp;&nbsp;
+<h6 style="display:inline"><a asp-controller="Login" asp-action="LoginOut">LoginOut</a></h6>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Employees" asp-action="Index" method="get">
+    <p>
+        ID: <input type="number" name="SearchId">&nbsp;&nbsp;
+        Last_Name: <input type="text" name="SearchLastName">&nbsp;&nbsp;
+        SEX:@Html.DropDownList("SearchSex",
+        Options.ListSex().Select(s =>
+        new SelectListItem() { Text = s, Value = s }))&nbsp;&nbsp;
+        Department:@Html.DropDownList("SearchDepartment",
+        Options.ListDepartment().Select(d =>
+        new SelectListItem() { Text = d, Value = d }))&nbsp;&nbsp;
+        <input type="submit" value="Filter" />&nbsp;&nbsp;
+        <a asp-action="Index">Back to Full List</a>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index"
+                   asp-route-searchLastName="@(Model.searchLastName)"
+                   asp-route-searchSex="@(Model.searchSex)"
+                   asp-route-searchDepartment="@(Model.searchDepartment)"
+                   asp-route-sortRule="@ViewData["sortRule"]"
+                   asp-route-PreviousOrder="@ViewData["PreviousOrder"]"
+                   asp-route-sortOrder="First_Name">First_Name</a>
+            </th>
+            <th>
+                <a asp-action="Index"
+                   asp-route-searchLastName="@(Model.searchLastName)"
+                   asp-route-searchSex="@(Model.searchSex)"
+                   asp-route-searchDepartment="@(Model.searchDepartment)"
+                   asp-route-sortRule="@ViewData["sortRule"]"
+                   asp-route-PreviousOrder="@ViewData["PreviousOrder"]"
+                   asp-route-sortOrder="Last_Name">Last_Name</a>
+            </th>
+            <th>
+                Sex
+            </th>
+            <th>
+                <a asp-action="Index"
+                   asp-route-searchLastName="@(Model.searchLastName)"
+                   asp-route-searchSex="@(Model.searchSex)"
+                   asp-route-searchDepartment="@(Model.searchDepartment)"
+                   asp-route-sortRule="@ViewData["sortRule"]"
+                   asp-route-PreviousOrder="@ViewData["PreviousOrder"]"
+                   asp-route-sortOrder="Birth">Birth</a>
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Department
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PageShow)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.First_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Last_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.PageShow.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.PageShow.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-PreviousRule="@ViewData["PreviousRule"]"
+   asp-route-page="@(Model.PageShow.PageIndex - 1)"
+   asp-route-searchLastName="@(Model.searchLastName)"
+   asp-route-searchSex="@(Model.searchSex)"
+   asp-route-searchDepartment="@(Model.searchDepartment)"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-PreviousRule="@ViewData["PreviousRule"]"
+   asp-route-page="@(Model.PageShow.PageIndex + 1)"
+   asp-route-searchLastName="@(Model.searchLastName)"
+   asp-route-searchSex="@(Model.searchSex)"
+   asp-route-searchDepartment="@(Model.searchDepartment)"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
