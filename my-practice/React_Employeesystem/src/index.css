@@ -1,0 +1,14 @@
+td{
+    text-align:center
+}
+#upid{
+    display: none;
+}
+#page{
+    float:right;
+}
+#loginoutbtn{
+    position:absolute;
+    right: 20px;
+    top:30px
+}
