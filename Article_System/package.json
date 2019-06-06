@@ -1,0 +1,14 @@
+{
+	"scripts": {
+		"install-all": "yarn install && yarn install-client && yarn install-server",
+		"install-client": "cd client && yarn install",
+		"install-server": "cd server && yarn install"
+	},
+	"dependencies": {
+		"axios": "^0.18.0",
+		"prettier": "^1.17.0",
+		"rimraf": "^2.6.3",
+		"stylelint": "^10.0.0",
+		"tslint": "^5.15.0"
+	}
+}

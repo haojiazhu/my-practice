@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["esnext"],
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "outDir": "build",
+        "experimentalDecorators": true,
+    },
+    "include": [
+        "src/**/*", "utils"
+    ],
+    "exclude": [
+        "node_modules",
+    ]
+}

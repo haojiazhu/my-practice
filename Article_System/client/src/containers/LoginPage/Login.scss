@@ -1,0 +1,125 @@
+.xs-margin {
+	margin-top: 1.6%;
+}
+
+.log-right {
+	width: 100%;
+}
+
+@media (max-width: 768px) {
+	.xs-margin {
+		margin-top: 15% !important;
+		margin-bottom: 15% !important;
+	}
+	.hidden-xs {
+		display: none !important;
+	}
+	.login-margin {
+		margin-right: 0 !important;
+		margin-top: 0 !important;
+	}
+	.login-btn-margin {
+		margin: 0px 30px 30px 50px !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.col-sm-6 {
+		width: 50%;
+	}
+
+}
+
+@media screen and (min-width:768px) and (max-width: 870px) {
+	.login-btn-margin {
+		margin: 0px 60px 30px 25% !important;
+	}
+}
+
+@media screen and (min-width:870px) and (max-width: 1200px) {
+	.login-btn-margin {
+		margin: 0px 60px 30px 30% !important;
+	}
+}
+
+
+.table-div {
+	text-align: center;
+}
+
+.table {
+	display: inline;
+	border: 0;
+	margin: auto;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.table td {
+	border: 0px;
+}
+
+.login {
+	border-radius: 6px;
+	border: 1px solid #cccccc;
+	font-family: Helveticca Naue, Helvetica, Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+
+.login-margin {
+	margin-right: 10%;
+	margin-top: 30%;
+}
+
+.login-header {
+	margin: 28px 0 10px 0;
+}
+
+.login-title {
+	font-weight: 500;
+	font-size: 24px;
+	margin-bottom: 3%;
+}
+
+.div {
+	width: 100%;
+}
+
+.cas-login-input {
+	background-color: white;
+	height: 34px;
+	font-size: 15px;
+	border-radius: 3px;
+	border: 1px solid rgb(204, 204, 204);
+	padding: 6px 12px 6px 12px;
+	margin: 0px 30px 30px 30px;
+	width: 74%;
+}
+
+
+.login-btn {
+	border-color: rgb(53, 126, 189);
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 139, 202);
+    font-size: 16px;
+    border-radius: 6px;
+    padding: 4px 14px;
+    border: 1px solid transparent;
+}
+
+.reset-btn {
+	border-color: rgb(53, 126, 189);
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 139, 202);
+    font-size: 16px;
+    border-radius: 6px;
+    padding: 4px 14px;
+    border: 1px solid transparent;
+    margin-bottom: 30px;
+}
+
+.login-btn-margin {
+	margin: 0px 60px 30px 35%;
+}
+
+
